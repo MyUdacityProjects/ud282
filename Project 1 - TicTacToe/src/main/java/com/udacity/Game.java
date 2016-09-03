@@ -151,6 +151,48 @@ public class Game {
     public String checkGameWinner(char [][]grid){
         String result = "None";
         //Student code goes here ...
+        Boolean won = false;
+        for(int i = 0 ; i < 3 ; ++i){
+            System.out.print(grid[i][0]);
+            if(grid[i][0] != '-' && grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2]){
+                if(grid[i][0] == 'x'){
+                    result = "x wins";
+                }else{
+                    result = "o wins";
+                }
+                won = true;
+                break;
+            }
+        }
+        if(!won){
+            for(int i = 0 ; i < 3 ; ++i){
+                System.out.print(grid[0][i]);
+                if(grid[0][i] != '-' && grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i]){
+                    if(grid[0][i] == 'x'){
+                        result = "x wins";
+                    }else{
+                        result = "o wins";
+                    }
+                    won = true;
+                    break;
+                }
+            }
+            if(!won && grid[0][0] != '-' && grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2]){
+                if(grid[0][0] == 'x'){
+                    result = "x wins";
+                }else{
+                    result = "o wins";
+                }
+                won = true;
+            }
+            if(!won && grid[0][2] != '-' && grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0]){
+                if(grid[0][2] == 'x'){
+                    result = "x wins";
+                }else{
+                    result = "o wins";
+                }
+            }
+        }
         return result;
     }
 
